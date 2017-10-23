@@ -1,0 +1,11 @@
+#add_product_form {
+	display: inline-block;
+	margin: auto;
+	padding: 5%;
+	background-color: #2590EB;
+}
+
+#add_product_div {
+	padding: 4%;
+	font-size: large;
+}
