@@ -2,30 +2,30 @@
 {% block content %}
 <div class="row" id="add_product_div">
     <div class="col-md-4 col-md-offset-4">
-        <form>
+        <form method="POST" enctype="multipart/form-data">
             <div id="add_product_form">
                 <div class="form-group">
                     <label for="product-name-label">Name</label>
-                    <input type="text" class="form-control" id="name-input">
+                    <input type="text" class="form-control" name="name" id="name-input">
                 </div>
                 <div class="form-group">
                     <label for="product-description-label">Description</label>
-                    <textarea class="form-control" id="description-textarea" rows="3"></textarea>
+                    <textarea class="form-control" name="description" id="description-textarea" rows="3"></textarea>
                 </div>
                 <div class="form-row" style="text-align:center">
                     <div class="form-group col-md-3 col-md-offset-2">
                         <label for="product-quantity-label">Quantity</label>
-                        <input type="text" class="form-control" id="quantity-input">
+                        <input type="text" class="form-control" name="quantity" id="quantity-input">
                     </div>
                     <div class="form-group col-md-3 col-md-offset-2">
                         <label for="product-Price-label">Price</label>
-                        <input type="text" class="form-control" id="price-input">
+                        <input type="text" class="form-control" name="price" id="price-input">
                     </div>
                 </div>
                 <div class="form-row" style="text-align:center">
                     <div class="form-group col-md-4 col-md-offset-4">
                         <label for="product-image-uploader-label">Images</label>
-                        <input type="file" class="form-control-file" id="file-uploader" multiple>
+                        <input type="file" class="form-control-file" name="image" id="file-uploader">
                     </div>
                 </div>
                 <div class="form-row" style="text-align:center">

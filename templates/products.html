@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% block content %}
+    <!-- Gotten from http://cssdeck.com/labs/css-only-pinterest-style-columns-layout -->
+    <div id="wrapper">
+        <div id="pin-columns">
+            {% for p in products %}
+                <div class="pin">
+                    <img src={{p.image_path}}>
+                    <p>
+                        <h3>{{p.name}}</h3><br/>
+                        {{p.description}}<br/>
+                        Quantity:{{p.quantity}}		Price: ${{p.price}}<br/>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}  

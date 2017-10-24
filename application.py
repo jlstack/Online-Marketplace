@@ -1,12 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 import sys
 import os
-
+import base64
 
 errors = []
 
 try:
     from application import db
+    from application.models import Product
+    db.create_all()
 except Exception as err:
     errors.append(err.message)
 
@@ -15,15 +17,31 @@ application = Flask(__name__)
 
 @application.route('/')
 def index():
-    return '<h1>Hello World</h1>'
+    products = Product.query.order_by(Product.id.desc())
+    return render_template('products.html', products=products)
 
 @application.route('/dir')
 def stuff():
     return str(dir(application))
 
-@application.route('/add')
+@application.route('/add', methods=['GET', 'POST'])
 def test():
-    return render_template('upload_form.html')
+    if str(request.method) == 'POST':
+        try:     
+	    vals = request.form.to_dict()
+            file = request.files['image']
+            ext = file.filename.rsplit('.', 1)[1].lower()
+            if ext in ['png', 'jpg', 'jpeg']:
+                filename = "/static/" + base64.urlsafe_b64encode(file.filename) + "." + ext
+                file.save("." + filename)
+	        product = Product(vals['name'], vals['description'], filename, int(vals['quantity']), float(vals['price']))
+                db.session.add(product)
+                db.session.commit()        
+                db.session.close()
+        except Exception as err:
+            db.session.rollback()
+    	    return err.message
+    return render_template('add_product.html')
 
 @application.route('/errors')
 def get_errors():
@@ -45,6 +63,11 @@ def get_db_dir():
 def get_tables():
     return str(db.metadata.sorted_tables)
 
+@application.route('/products')
+def get_products():
+    products = Product.query.order_by(Product.id.desc())
+    stuff = [x.name for x in products]
+    return str(stuff)
 # run the app.
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
