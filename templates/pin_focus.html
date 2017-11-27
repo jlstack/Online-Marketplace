@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+{% block content %}
+    <script>
+	//https://www.reddit.com/r/javascript/comments/461f0y/body_onclick_except_certain_divs/
+        function goto(event) {
+            var noRedirect = '#featured-pin-div *';
+            if (!event.target.matches(noRedirect)) {
+                window.history.back();
+            }
+        };
+        document.body.addEventListener('click', goto);
+    </script>
+    <div id="wrapper">
+	<a href="/gallery">
+	    <div>
+	        <a href="/gallery">
+	            <div id="exit-button">
+	                <p class="button-text">X</p>
+	            </div>
+	        </a>
+                <div id="featured-pin-div">
+	            <div id="featured-pin" class="pin">
+			<div class="carousel">
+			    <img src={{p.image_path}}>
+			    {% for image in images %}
+			        <img src={{image.image_path}}>
+			    {% endfor %}
+			</div>
+			
+		        <h3>{{p.name}}</h3><br/>
+		        <p>
+		            {{p.description}}
+		        </p>
+		        {% if session.logged_in %}
+			    <a id="delete-button" class="btn btn-danger" href="/delete/{{p.id}}">Delete</a>
+                        {% endif %}
+	            </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+	$('.carousel').slick({
+	  dots: true,
+	  infinite: true,
+	  speed: 500,
+	  fade: true,
+	  cssEase: 'linear'
+	});
+
+	height = $(".slick-active").height() + 20;
+	$(".slick-list").height(height);
+	
+	$( ".slick-arrow" ).click(function() {
+		height = $(".slick-active").height() + 20;
+		$(".slick-list").height(height);
+	});
+
+	$( ".slick-dots" ).click(function() {
+		height = $(".slick-active").height() + 20;
+		$(".slick-list").height(height);
+	});
+
+	window.addEventListener("keyup", function(e){ if(e.keyCode == 37) $(".slick-list").height($(".slick-active").height() + 20); }, false);
+	window.addEventListener("keyup", function(e){ if(e.keyCode == 39) $(".slick-list").height($(".slick-active").height() + 20); }, false);
+	window.addEventListener("keyup", function(e){ if(e.keyCode == 27) window.history.back(); }, false);
+    </script>
+
+{% endblock %}  

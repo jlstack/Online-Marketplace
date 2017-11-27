@@ -4,14 +4,14 @@
     <div id="wrapper">
         <div id="pin-columns">
             {% for p in products %}
-                <div class="pin">
-                    <img src={{p.image_path}}>
-                    <p>
-                        <h3>{{p.name}}</h3><br/>
-                        {{p.description}}<br/>
-                        Quantity:{{p.quantity}}		Price: ${{p.price}}<br/>
-                    </p>
-                </div>
+		<a href="/pin/{{p.id}}">
+                    <div class="pin" tabindex={{p.id}}>
+                        <img src={{p.image_path}}>
+                        <p>
+                            <h3>{{p.name}}</h3><br/>
+                        </p>
+                    </div>
+		</a>
             {% endfor %}
         </div>
     </div>

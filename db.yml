@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "username": "admin",
+            "password_hash": "d63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Red Oak Entertainment Stand",
+            "description": "This was my first real project. I built this table under the guidance of my uncle, Roger Hamby, for my high school senior project in Fall 2013. The piece is built entirely out of solid red oak and has antique finished brass hinges.",
+            "images": ["/static/images/entertainment_stand.png", "/static/images/entertainment_stand2.jpg", "/static/images/entertainment_stand3.jpg"
+            ]
+        },
+        {
+            "name": "Red Oak End Table",
+            "description": "This project was done for my Intro to Fabrication class with Phil Armstrong. It is solid red oak and features antique finished brass hinges. This was my first attempt at hand-cut dovetails. Overall, I was very pleased with the final outcome.",
+            "images": ["/static/images/endtable.png", "/static/images/endtable2.jpg", "/static/images/endtable3.jpg"
+            ]
+        },
+        {
+            "name": "Black Walnut Desk",
+            "description": "This is a rendering of my current project done by my brother, Daniel Stack.",
+            "images": [ "/static/images/walnut_desk.jpg", "/static/images/walnut_desk2.jpg", "/static/images/walnut_desk3.jpg"
+            ]
+        }
+    ]
+}

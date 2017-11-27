@@ -26,8 +26,5 @@ if config is not None:
     application.config.from_object(config)
     try:
         db = SQLAlchemy(application)
-        #metadata = db.metadata
-        #product = db.Table('product', metadata, db.Column('id', db.Integer, primary_key=True), db.Column('name', db.String(128), nullable=False), db.Column('description', db.TEXT, nullable=False), db.Column('image_path', db.String(128), nullable=False), db.Column('price', db.FLOAT, nullable=False))
-        #product.insert()
     except Exception as err:
         print(err.message)
