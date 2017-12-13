@@ -2,7 +2,7 @@ from flask import Flask, Response, session, flash, request, redirect, render_tem
 import sys
 import os
 import base64
-from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user 
+from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
 import hashlib
 from flask_openid import OpenID
 
@@ -17,19 +17,18 @@ try:
         db_entries = yaml.safe_load(db_file)
 
     db.create_all()
-    for user in db_entries["users"]:    
+    for user in db_entries["users"]:
         usr = User(user["username"], user["password_hash"])
         db.session.add(usr)
-        db.session.commit()        
-
+        db.session.commit()
     for project in db_entries["projects"]:
-	proj = Product(project["name"], project["description"], project["images"][0], 1, 0)
+	proj = Product(project["name"], project["description"], project["default_image"], 1, 0)
         db.session.add(proj)
-        db.session.commit()        
-        for i in range(1, len(project["images"])): 
+        db.session.commit()
+        for i in range(0, len(project["images"])):
             img = Image(project['name'], project["images"][i], i)
             db.session.add(img)
-            db.session.commit()        
+            db.session.commit()
     db.session.close()
 except Exception as err:
     errors.append(err.message)
@@ -40,7 +39,7 @@ application = Flask(__name__)
 # config
 application.config.update(
     DEBUG = True,
-    SECRET_KEY = os.urandom(24) 
+    SECRET_KEY = os.urandom(24)
 )
 
 @application.route("/login", methods=["GET", "POST"])
@@ -52,17 +51,17 @@ def login():
             redirect("/")
     username = request.form['username']
     password = request.form['password']
-    password = hashlib.sha224(password.encode('utf-8')).hexdigest()        
-    user = User.query.filter_by(username=username, password=password).first() 
+    password = hashlib.sha224(password.encode('utf-8')).hexdigest()
+    user = User.query.filter_by(username=username, password=password).first()
     if user is not None:
         session['logged_in'] = True
-        return redirect("/") 
+        return redirect("/")
     return redirect("/login")
 
 @application.route("/logout")
 def logout():
-    session['logged_in'] = False 
-    return redirect('/') 
+    session['logged_in'] = False
+    return redirect('/')
 
 @application.route('/')
 def index():
@@ -94,7 +93,7 @@ def add():
     if not session.get('logged_in'):
         return render_template('login.html')
     if str(request.method) == 'POST':
-        try:     
+        try:
 	    vals = request.form.to_dict()
             files = request.files.getlist("image")
             for i in range(0, len(files)):
@@ -106,13 +105,12 @@ def add():
                     if i == 0:
 	                product = Product(vals['name'], vals['description'], filename, 1, 0)
                         db.session.add(product)
-                        db.session.commit()        
+                        db.session.commit()
                         db.session.close()
-                    else:
-                        img = Image(vals['name'], filename, i)
-                        db.session.add(img)
-                        db.session.commit()        
-                        db.session.close()
+                    img = Image(vals['name'], filename, i)
+                    db.session.add(img)
+                    db.session.commit()
+                    db.session.close()
         except Exception as err:
             db.session.rollback()
     	    return err.message
@@ -131,13 +129,13 @@ def get_products():
 @application.route('/pin/<pin_id>')
 def pin_enlarge(pin_id):
     p = Product.query.filter_by(id=pin_id).first()
-    images = Image.query.filter_by(name=p.name).order_by(Image.display_number.desc())
+    images = Image.query.filter_by(name=p.name).order_by(Image.display_number.asc())
     return render_template('pin_focus.html', p=p, images=images)
 
 @application.route('/delete/<pin_id>')
 def delete(pin_id):
     Product.query.filter_by(id = pin_id).delete()
-    db.session.commit()        
+    db.session.commit()
     db.session.close()
     return redirect("/gallery")
 

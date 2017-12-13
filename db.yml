@@ -9,19 +9,78 @@
         {
             "name": "Red Oak Entertainment Stand",
             "description": "This was my first real project. I built this table under the guidance of my uncle, Roger Hamby, for my high school senior project in Fall 2013. The piece is built entirely out of solid red oak and has antique finished brass hinges.",
-            "images": ["/static/images/entertainment_stand.png", "/static/images/entertainment_stand2.jpg", "/static/images/entertainment_stand3.jpg"
+            "default_image": "/static/images/entertainment_stand.jpg",
+            "images": ["/static/images/entertainment_stand_carousel.png", "/static/images/entertainment_stand2.jpg", "/static/images/entertainment_stand3.jpg"
             ]
         },
         {
             "name": "Red Oak End Table",
             "description": "This project was done for my Intro to Fabrication class with Phil Armstrong. It is solid red oak and features antique finished brass hinges. This was my first attempt at hand-cut dovetails. Overall, I was very pleased with the final outcome.",
-            "images": ["/static/images/endtable.png", "/static/images/endtable2.jpg", "/static/images/endtable3.jpg"
+            "default_image": "/static/images/endtable.png",
+            "images": ["/static/images/endtable_carousel.png", "/static/images/endtable2_carousel.png", "/static/images/endtable3_carousel.png"
             ]
         },
         {
             "name": "Black Walnut Desk",
-            "description": "This is a rendering of my current project done by my brother, Daniel Stack.",
+            "description": "This is my current project. My brother, Daniel Stack, was nice enough to do a rendering .",
+            "default_image": "/static/images/walnut_desk.jpg",
             "images": [ "/static/images/walnut_desk.jpg", "/static/images/walnut_desk2.jpg", "/static/images/walnut_desk3.jpg"
+            ]
+        },
+        {
+            "name": "Black Walnut Candlestick",
+            "description": "This was my first attempt at a hand-turned candlestick.",
+            "default_image": "/static/images/candlestick2.jpg",
+            "images": ["/static/images/candlestick_carousel.png", "/static/images/candlestick3.jpg"
+            ]
+        },
+        {
+            "name": "Red Oak Bowl",
+            "description": "I turned this bowl from a piece of firewood that my grandpa had. I rough-cut the bowl in the Winter of 2014 and finished it in the Spring of 2017.",
+            "default_image": "/static/images/oak_bowl.jpg",
+            "images": [ "/static/images/oak_bowl.jpg", "/static/images/oak_bowl2.jpg", "/static/images/oak_bowl3.jpg"
+            ]
+        },
+        {
+            "name": "Black Walnut Bowl",
+            "description": "I turned this bowl in the Fall of 2017. It is actually still a work in progress.",
+            "default_image": "/static/images/walnut_bowl.jpg",
+            "images": [ "/static/images/walnut_bowl.jpg"
+            ]
+        },
+        {
+            "name": "Black Walnut Pen",
+            "description": "I attended the Klingspor Woodworking Extravaganza where they allowed people to turn pens for free. I jumped at the opportunity to do so.",
+            "default_image": "/static/images/walnut_pen.jpg",
+            "images": [ "/static/images/walnut_pen.jpg"
+            ]
+        },
+        {
+            "name": "Black Walnut Ornament",
+            "description": "This was my first attempt at turning an ornament out of some black walnut scraps.",
+            "default_image": "/static/images/walnut_ornament.jpg",
+            "images": [ "/static/images/walnut_ornament_carousel.png", "/static/images/walnut_ornament3.jpg"
+            ]
+        },
+        {
+            "name": "Black Walnut Goblet",
+            "description": "This project made me sweat a little. It was my first go at turning a wooden goblet, and I wanted thin edges. This can be a bit risky.",
+            "default_image": "/static/images/walnut_goblet2.jpg",
+            "images": ["/static/images/goblet_carousel.png", "/static/images/goblet2_carousel.png"
+            ]
+        },
+        {
+            "name": "Maple Canister",
+            "description": "My uncle gave me some maple turning blanks, so I decided to make a canister for fun.",
+            "default_image": "/static/images/maple_canister.jpg",
+            "images": [ "/static/images/maple_canister.jpg", "/static/images/maple_canister3.jpg"
+            ]
+        },
+        {
+            "name": "Maple Honey Dipper",
+            "description": "I turned this honey dipper from the piece of scrap wood left over from my first turning demonstration.",
+            "default_image": "/static/images/honey_dipper.jpg",
+            "images": [ "/static/images/honey_dipper.jpg", "/static/images/honey_dipper2.jpg"
             ]
         }
     ]

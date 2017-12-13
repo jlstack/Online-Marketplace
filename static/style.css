@@ -1,5 +1,10 @@
+html,
+body {
+	height: 100%;
+}
+
 #home { 
-  background: url("background.jpg") no-repeat center center fixed; 
+  background: url("/static/images/hand_plane_web.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,6 +13,7 @@
 }
 
 #contact { 
+  /*
   background: 
     linear-gradient(
       rgba(0, 0, 0, 0.45), 
@@ -18,13 +24,43 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100%;
+  */
+  height: calc(100% - 50px);
   color: white;
+}
+
+#about {
+  /*
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)
+    ), 
+  url("/static/images/portrait_jointer_web.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  */
+  height: calc(100% - 50px);
+  color: white;
+}
+
+.about-p {
+	margin-top: 2%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: medium; 
+}
+
+#about-h1 {
+	padding: 2%;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .btn-large {
 	color:white;
-	margin:.75em;
+	padding-left: 1.25em;
 	font-size: large;	
 }
 
@@ -33,15 +69,29 @@
 }
 
 #home-slider {
-	height: calc(100% - 15px);
+	height: calc(100% - 50px);
 	top: 100%;
 	text-align: center;
+	background-color: #dae5e8;
+	overflow: hidden;
 }
 
 #home-slider h1 {
 	padding-top: 3%;
 	padding-bottom: 4%;
-	font-family: fantasy;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#home-slider div div div.col-md-4.col-md-offset-2 p {
+	padding-top: 14%;
+	font-family: "Open Sans";
+	font-size: larger;
+	text-align: left;
+	color: rgb(46, 50, 55);
+}
+
+#logo {
+	height: 50%;
 }
 
 #profile-pic {
@@ -49,7 +99,7 @@
 }
 
 #contact-info-div {
-	padding: 12%;
+	padding-top: 30vh;
 }
 
 
@@ -132,13 +182,10 @@ body {
 #pin-columns {
 	-webkit-column-count: 3;
 	-webkit-column-gap: 10px;
-	-webkit-column-fill: auto;
 	-moz-column-count: 3;
 	-moz-column-gap: 10px;
-	-moz-column-fill: auto;
 	column-count: 3;
 	column-gap: 15px;
-	column-fill: auto;
 }
 
 #featured-pin-div {
@@ -153,40 +200,39 @@ body {
 .pin {
 	display: inline-block;
 	text-align: center;
-	background: #FEFEFE;
+	background: #FFF;
 	border: 2px solid #FAFAFA;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.125);
 	margin: 0 2px 15px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
 	column-break-inside: avoid;
 	padding: 15px;
 	padding-bottom: 5px;
-	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
 	opacity: 1;
 	
-	-webkit-transition: box-shadow .2s ease;
-	-moz-transition: box-shadow .2s ease;
-	-o-transition: box-shadow .2s ease;
-	transition: box-shadow .2s ease;
+	-webkit-transition: box-shadow .05s ease-out;
+	-moz-transition: box-shadow .05s ease-out;
+	-o-transition: box-shadow .05s ease-out;
+	transition: box-shadow .05s ease-out;
 }
 
 .pin:hover {
-	box-shadow:0 0 1em grey;
-	transition-delay: .15s;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, .5);
 }
 
 .pin img {
 	width: 100%;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #121529;
 	padding-bottom: 15px;
 	margin-bottom: 5px;
 }
 
 .pin p {
-	font: 12px/18px Arial, sans-serif;
 	color: #333;
 	margin: 0;
+	text-align: justify;
+	padding: 0% 10% 5% 10%;
 }
 
 
@@ -208,18 +254,34 @@ body {
 }
 
 .navbar-inverse {
-	background-color: #c0c0c0;
-	border-color: #c0c0c0;
+	background-color: #121529;
+	border-color: #121529;
 }
 
 .navbar-inverse .navbar-brand {
-	color: black;
+	color: white;
 } 
 
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
-	background-color: darkgrey;
+	background-color: white;
+	color: #121529;
 }
 
 .navbar-inverse .navbar-nav li a {
-	color: black;
+	color: white;
 } 
+
+#pin-columns a div h3 {
+	color: darkred;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#featured-pin  h3 {
+	color: darkred;
+	font-family: 'Open Sans', sans-serif;
+	padding-top: 1%;
+}
+
+.navbar-brand {
+	font-family: 'Yellowtail', cursive;
+}
